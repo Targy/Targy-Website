@@ -1,0 +1,33 @@
+<html>
+	<head>
+	<style>
+	body{
+		cursor:none;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  background-color:#77dd77;
+}
+div{
+  position:absolute;
+  transform:translate(-50%,-50%);
+  height:35px;
+  width:35px;
+  border-radius:50%;
+  border:2px solid black;
+}
+	</style>
+	</head>
+	<body>
+		<h1 class = "test">Hello <span class = "test2">World!</span> </h1>
+		<div id = "circle"></div>
+		<script>
+			let circle = document.getElementById('circle');
+			const onMouseMove = (e) =>{
+ 				 circle.style.left = e.pageX + 'px';
+ 				 circle.style.top = e.pageY + 'px';
+			}
+			document.addEventListener('mousemove', onMouseMove);
+		</script>
+	</body>
+</html>
