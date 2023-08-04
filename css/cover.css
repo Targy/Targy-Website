@@ -264,7 +264,19 @@ html body{
 }
 
 
+.category-tag {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
+.category-tag.active {
+    background-color: #333;
+    color: #fff;
+}
 
 .project-container{
   display:flex;

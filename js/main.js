@@ -156,6 +156,41 @@ function to_contact(){
     new_nav.classList.add("active");
 }
 
+
+
+function filterProjectsByCategory(category) {
+    var projectSections = document.getElementsByClassName("project-container");
+    
+    for (var i = 0; i < projectSections.length; i++) {
+        var categories = projectSections[i].getAttribute("data-categories").split(",");
+        if (category === "all" || categories.includes(category)) {
+            projectSections[i].style.display = "flex";
+        } else {
+            projectSections[i].style.display = "none";
+        }
+    }
+}
+
+
+const categoryTags = document.getElementsByClassName("category-tag");
+for (const tag of categoryTags) {
+    tag.addEventListener("click", function () {
+        const selectedCategory = this.dataset.category;
+
+        // Remove "active" class from all category tags
+        for (const otherTag of categoryTags) {
+            otherTag.classList.remove("active");
+        }
+
+
+
+         // Add "active" class to the clicked category tag
+         this.classList.add("active");
+
+        // Filter projects based on the selected category
+        filterProjectsByCategory(selectedCategory);
+    });
+}
 // function to_project(){
 //     switch(display_flag) {
 //         case 1:
