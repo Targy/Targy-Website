@@ -344,6 +344,12 @@ html body{
   padding:10px;
 }
 
+.system-block {
+    display: block;
+    min-height: 400px;
+    padding: 2%;
+}
+
 .jello-horizontal {
   animation: jello-horizontal 0.9s 1.3s both;
 }

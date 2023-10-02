@@ -1,4 +1,5 @@
 var display_flag = 1;
+var in_GE = false;
             
 var fade_in_out_once = document.getElementsByClassName("fade-in-out");
 var home_sections = document.getElementsByTagName("section");
@@ -160,13 +161,27 @@ function to_contact(){
 
 function filterProjectsByCategory(category) {
     var projectSections = document.getElementsByClassName("project-container");
-    
+    if (in_GE) {
+        fadeOutAndFadeIn(document.getElementsByClassName("nonGE"));
+        in_GE = false;
+    }
+    else {
+        if (category === "GE") {
+            fadeOutAndFadeIn(document.getElementsByClassName("GEContent"));
+            in_GE = true;
+            return;
+        }
+    }
+
     for (var i = 0; i < projectSections.length; i++) {
         var categories = projectSections[i].getAttribute("data-categories").split(",");
+
         if (category === "all" || categories.includes(category)) {
             projectSections[i].style.display = "flex";
+            projectSections[i].classList.add("current_display_category");
         } else {
             projectSections[i].style.display = "none";
+            projectSections[i].classList.add("current_display_category");
         }
     }
 }
@@ -191,6 +206,34 @@ for (const tag of categoryTags) {
         filterProjectsByCategory(selectedCategory);
     });
 }
+
+
+function fadeOutAndFadeIn(targetContent) {
+    if (in_GE) {
+        var currentDisplay = document.getElementsByClassName("GEContent");
+    }
+    else {
+        var currentDisplay = document.getElementsByClassName("nonGE");
+    }
+    
+     currentDisplay[0].classList.remove("fade-in");
+     currentDisplay[0].classList.add("fade-out");
+    
+
+    setTimeout(function () {
+        currentDisplay[0].style.display = "none";
+        
+         targetContent[0].style.display = "inline-block";
+         targetContent[0].classList.add("fade-in");
+         targetContent[0].classList.add("current_display_category");
+
+    }, 1300);
+
+   
+}
+
+
+
 // function to_project(){
 //     switch(display_flag) {
 //         case 1:
