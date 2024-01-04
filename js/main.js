@@ -172,12 +172,17 @@ function filterProjectsByCategory(category) {
             return;
         }
     }
-
+    
     for (var i = 0; i < projectSections.length; i++) {
         var categories = projectSections[i].getAttribute("data-categories").split(",");
 
         if (category === "all" || categories.includes(category)) {
-            projectSections[i].style.display = "flex";
+            if (categories.includes("GE")) {
+                projectSections[i].style.display = "inline-block";
+            }
+            else {
+                projectSections[i].style.display = "flex";
+            }
             projectSections[i].classList.add("current_display_category");
         } else {
             projectSections[i].style.display = "none";
@@ -218,7 +223,8 @@ function fadeOutAndFadeIn(targetContent) {
     
      currentDisplay[0].classList.remove("fade-in");
      currentDisplay[0].classList.add("fade-out");
-    
+
+    targetContent[0].classList.remove("fade-out");
 
     setTimeout(function () {
         currentDisplay[0].style.display = "none";
