@@ -414,13 +414,13 @@ html body{
 }
 
 .ai2u-detail-section-gameplay{
-  background-color:rgba(219, 226, 239, 0.5);
+  background-color:white;
   scroll-margin-top:56px;
   padding:35px 20px 60px;
 }
 
 .ai2u-detail-section-interactive{
-  background-color:white;
+  background-color:rgba(219, 226, 239, 0.5);
   scroll-margin-top:56px;
   padding:35px 20px 60px;
 }

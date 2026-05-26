@@ -41,19 +41,13 @@
             <!-- <h1 class = "pt-4 text-center zoom-fly-in home_display">Welcome to Targe Feng's Portfolio!</h1> -->
             
             <main class="mx-auto text-center ai2u-card-area">
-                <a class="ai2u-card ai2u-card-focus" href="#client-server-detail">
-                    <div class="ai2u-card-bg" style="background-image: url('./img/img1.webp');"></div>
+                <a class="ai2u-card" href="#client-server-detail">
+                    <div class="ai2u-card-bg" style="background-image: url('./img/AI2U/client-server.png');"></div>
                     <div class="ai2u-card-text">
                         <h2>Client-Server Integration</h2>
                     </div>
                 </a>
-                <a class="ai2u-card" href="#applied-genai-detail">
-                    <div class="ai2u-card-bg" style="background-image: url('./img/AI2U/GenAI-Card.png');"></div>
-                    <div class="ai2u-card-text">
-                        <h2>Applied GenAI</h2>
-                    </div>
-                </a>
-                <a class="ai2u-card" href="#core-gameplay-detail">
+                <a class="ai2u-card ai2u-card-focus" href="#core-gameplay-detail">
                     <div class="ai2u-card-bg" style="background-image: url('./img/AI2U/GameSystem-Card.png');"></div>
                     <div class="ai2u-card-text">
                         <h2>Core Gameplay Systems</h2>
@@ -65,9 +59,15 @@
                         <h2>Interactive Sub-Systems</h2>
                     </div>
                 </a>
+                <a class="ai2u-card" href="#applied-genai-detail">
+                    <div class="ai2u-card-bg" style="background-image: url('./img/AI2U/GenAI-Card.png');"></div>
+                    <div class="ai2u-card-text">
+                        <h2>Applied GenAI</h2>
+                    </div>
+                </a>
             </main>
             <div class="ai2u-skills-section">
-                <p>Unity, C#, PlayFab, REST API, JSON Parsing, AI Behavior Logic, UI Systems, Localization, Procedural Animation, Gameplay Systems, Tooling, Debugging</p>
+                <p>Unity, C#, PlayFab, REST API, Git</p>
             </div>
             <div class="ai2u-detail-section" id="client-server-detail">
                 <div class="ai2u-detail-content">
@@ -96,12 +96,12 @@
                         </div>
                         <ul class="ai2u-detail-list">
                             <li>Developed a live-ops <strong>inbox system</strong> supporting server-driven rewards, notifications, and event messaging with the game client.</li>
-							<li>Implemented asynchronous API communication with a custom AI backend, validating and parsing JSON responses for real-time gameplay interactions.</li>
+							<li>Implemented reliable <strong>client-server</strong> communication systems using <strong>UnityWebRequest</strong>, with retry logic, offline player data caching, and versioned API support</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <div class="ai2u-detail-section-genai" id="applied-genai-detail">
+            <div class="ai2u-detail-section-genai" id="applied-genai-detail-old" style="display:none">
                 <div class="ai2u-detail-content">
                     <h1>Applied GenAI</h1>
                     <div class="ai2u-detail-part ai2u-detail-part-reverse">
@@ -190,7 +190,21 @@
                             </button>
                         </div>
                         <ul class="ai2u-detail-list">
-                            <li>Built <strong>modular mini-game systems</strong> integrated into the core gameplay loop, implementing custom logic and search <strong>algorithms</strong> to handle complex spatial and behavioral challenges.</li>
+                            <li>Built <strong>10+ modular mini-game systems</strong> integrated into the core gameplay loop, implementing custom logic and search <strong>algorithms</strong> to handle complex spatial and behavioral challenges.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ai2u-detail-section-genai" id="applied-genai-detail">
+                <div class="ai2u-detail-content">
+                    <h1>Applied GenAI</h1>
+                    <div class="ai2u-detail-part ai2u-detail-part-reverse">
+                        <div class="ai2u-detail-media ai2u-detail-media-gif">
+                            <img src="./img/AI2U/GenAI.png" alt="Applied GenAI demo">
+                        </div>
+                        <ul class="ai2u-detail-list">
+                            <li>Fed real-time player state data, including actions, inventory, and health, into generative AI systems to drive context-aware <strong>NPC behaviors</strong> and <strong>dialogue responses</strong>.</li>
+                            <li>Developed a gameplay logic layer that translated AI-generated intents into state-driven NPC behaviors using custom behavior trees.</li>
                         </ul>
                     </div>
                 </div>
@@ -617,7 +631,6 @@
                     <br>
                     <h5>Phone: (814)&nbsp826-5014</h5>
                     <br>
-                    <h5>Resume: <a href="./Feng Weixin_Resume_game.pdf" download="Resume - Targy Feng" style = "font-weight:300; text-decoration: none; color: black;">feng-weixin_resume_game</a>&nbsp;&nbsp; <a href="./Feng Weixin_Resume_game.pdf" download="Resume - Targy Feng" class = "btn btn-primary">Download</a></h5>
                     <a class = "hvr-grow" href = "https://www.linkedin.com/in/weixin-feng-4888a1205/"><i class="bi bi-linkedin" style = "font-size: xx-large;"></i></a>
                     
                 </div>

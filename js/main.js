@@ -318,7 +318,7 @@ function initAI2USwipeCards() {
         return;
     }
 
-    var activeIndex = 0;
+    var activeIndex = 1;
     var startX = 0;
     var currentX = 0;
     var isDragging = false;
