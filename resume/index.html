@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noindex">
+        <title>Downloading Resume</title>
+    </head>
+    <body>
+        <script>
+            const downloadLink = document.createElement("a");
+            downloadLink.href = "./resume.pdf";
+            downloadLink.download = "Weixin-Feng-Resume.pdf";
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+        </script>
+        <noscript>
+            <p>JavaScript is required to start the resume download automatically.</p>
+        </noscript>
+    </body>
+</html>
