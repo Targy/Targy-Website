@@ -1,5 +1,6 @@
 var display_flag = 1;
 var in_GE = false;
+var TARGY_CHAT_API_URL = "https://websitebackend-sdoh.onrender.com/chat";
             
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -569,7 +570,104 @@ function initAI2UGalleryFit() {
 function initAI2UPage() {
     initAI2USwipeCards();
     initAI2UGalleryFit();
+    initTargyChatbox();
     applyProjectLayout();
+}
+
+function initTargyChatbox() {
+    var chatWidget = document.getElementById("targy_chat_widget");
+    var chatButton = document.getElementById("targy_chat_button");
+    var closeButton = document.getElementById("targy_chatbox_close");
+    var chatbox = document.getElementById("targy_chatbox");
+    var chatForm = document.querySelector(".targy-chatbox-form");
+    var chatInput = chatForm ? chatForm.querySelector("input") : null;
+    var chatSubmitButton = chatForm ? chatForm.querySelector("button") : null;
+    var chatMessages = document.querySelector(".targy-chatbox-messages");
+    var chatHistory = [];
+
+    if (!chatWidget || !chatButton || !closeButton || !chatbox || !chatForm || !chatInput || !chatMessages) {
+        return;
+    }
+
+    function setChatOpen(isOpen) {
+        chatWidget.classList.toggle("targy-chat-open", isOpen);
+        chatButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        chatbox.setAttribute("aria-hidden", isOpen ? "false" : "true");
+    }
+
+    chatButton.addEventListener("click", function () {
+        setChatOpen(!chatWidget.classList.contains("targy-chat-open"));
+    });
+
+    closeButton.addEventListener("click", function () {
+        setChatOpen(false);
+    });
+
+    function appendChatMessage(message, role) {
+        var messageElement = document.createElement("div");
+        messageElement.className = "targy-chat-message targy-chat-message-" + role;
+        messageElement.textContent = message;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        return messageElement;
+    }
+
+    function setChatLoading(isLoading) {
+        chatInput.disabled = isLoading;
+        if (chatSubmitButton) {
+            chatSubmitButton.disabled = isLoading;
+        }
+    }
+
+    async function sendChatMessage(message) {
+        setChatLoading(true);
+        var loadingMessage = appendChatMessage("Thinking...", "agent targy-chat-message-loading");
+
+        try {
+            var response = await fetch(TARGY_CHAT_API_URL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    message: message,
+                    history: chatHistory
+                })
+            });
+
+            var data = await response.json();
+            loadingMessage.remove();
+
+            if (!response.ok) {
+                appendChatMessage(data.error || "The AI service is unavailable right now.", "error");
+                return;
+            }
+
+            var answer = data.answer || "I do not know yet.";
+            appendChatMessage(answer, "agent");
+            chatHistory.push({ role: "user", content: message });
+            chatHistory.push({ role: "assistant", content: answer });
+            chatHistory = chatHistory.slice(-6);
+        } catch (error) {
+            loadingMessage.remove();
+            appendChatMessage("I could not reach the AI service right now.", "error");
+        } finally {
+            setChatLoading(false);
+            chatInput.focus();
+        }
+    }
+
+    chatForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var message = chatInput.value.trim();
+        if (!message) {
+            return;
+        }
+
+        appendChatMessage(message, "user");
+        chatInput.value = "";
+        sendChatMessage(message);
+    });
 }
 
 if (document.readyState === "loading") {

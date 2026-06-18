@@ -635,6 +635,37 @@
             </div>
         </section>
 
+        <div class="targy-chat-widget" id="targy_chat_widget">
+            <button class="targy-chat-button" id="targy_chat_button" type="button" aria-label="Open AI chat" aria-expanded="false">
+                <i class="bi bi-chat-dots-fill"></i>
+            </button>
+
+            <div class="targy-chatbox" id="targy_chatbox" aria-hidden="true">
+                <div class="targy-chatbox-header">
+                    <div>
+                        <h3>Targy AI</h3>
+                        <p>Portfolio assistant</p>
+                    </div>
+                    <button class="targy-chatbox-close" id="targy_chatbox_close" type="button" aria-label="Close AI chat">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                </div>
+
+                <div class="targy-chatbox-messages">
+                    <div class="targy-chat-message targy-chat-message-agent">
+                        Hi, I can answer questions about Targy's projects, skills, and experience.
+                    </div>
+                </div>
+
+                <form class="targy-chatbox-form">
+                    <input type="text" placeholder="Ask about Targy's work..." aria-label="Ask about Targy's work">
+                    <button type="submit" aria-label="Send message">
+                        <i class="bi bi-send-fill"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
         <!--
         <footer class="fixed-bottom text-black text-center bg-light banner">
             <p style = "margin:0; padding:7px">By Targy Feng 2026</p>
@@ -644,7 +675,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
         <script src="./js/bounce.js-0.8.2/bounce.js"></script>
-        <script src="./js/main.js?v=ai2u-jump-bars"></script>
+        <script src="./js/main.js?v=ai-chat-api"></script>
         <script src="./js/bounce.js-0.8.2/bounce.min.js"></script>
     </body>
 </html>
