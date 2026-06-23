@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Globals
  */
 
@@ -1184,8 +1184,9 @@ html body{
 }
 
 .targy-chatbox-form button {
-  flex: 0 0 42px;
-  width: 42px;
+  flex: 0 0 auto;
+  min-width: 76px;
+  width: auto;
   height: 42px;
   border: 0;
   border-radius: 8px;
@@ -1194,6 +1195,8 @@ html body{
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
+  padding: 0 14px;
 }
 
 .targy-chatbox-form button:disabled,
@@ -1289,6 +1292,7 @@ html body{
             transform: scale3d(1, 1, 1);
   }
 }
+
 
 
 
